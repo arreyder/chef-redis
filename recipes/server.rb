@@ -25,9 +25,6 @@ include_recipe 'sysctl'
 case node[:redis][:installation_preference]
 when "upstream"
   include_recipe "redis::install_from_upstream"
-#when "launchpad"
-# TODO: Broken, not implemented as it's 2.4.9
-#  include_recipe "redis::install_from_launchpad"
 else
   include_recipe "redis::install_from_package"
 end
