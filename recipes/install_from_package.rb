@@ -19,8 +19,15 @@
 # limitations under the License.
 #
 
-unless node[:platform_version].to_f < 9.0
-  package "redis-server" do
+case node['platform']
+when 'ubuntu','debian'
+  unless node[:platform_version].to_f < 9.0
+  package 'redis-server' do
     action :install
   end
+end
+
+when 'centos','redhat','fedora'
+  package node['redis']['package_name'] do
+  action :install
 end
