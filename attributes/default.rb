@@ -24,7 +24,7 @@ default[:redis][:release_url] = "http://redis.googlecode.com/files/redis-#{node[
 default[:redis][:package_name] = 'redis'
 
 # Tunables
-default[:sysctl][:params][:vm][:overcommit_memory] = 1 if node[:memory][:total].to_i > 8169948
+default[:sysctl][:params][:vm][:overcommit_memory] = 1
 default[:sysctl][:params][:net][:core][:somaxconn] = 512 
 default[:redis][:maxmemory] = nil
 default[:redis][:server][:timeout] = 300000
