@@ -7,7 +7,7 @@ default[:redis][:home_dir] = '/usr/local/share/redis'
 default[:redis][:pid_file] = '/var/run/redis.pid'
 default[:redis][:db_basename] = 'dump.rdb'
 default[:redis][:user] = 'redis'
-default[:redis][:group = 'redis'
+default[:redis][:group] = 'redis'
 default[:redis][:uid] = 335
 default[:redis][:gid] = 335
 
