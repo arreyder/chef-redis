@@ -20,7 +20,7 @@
 #
 
 include_recipe 'runit'
-include_recipe 'sysctl'
+include_recipe 'sysctl::apply'
 
 case node[:redis][:installation_preference]
 when "upstream"
