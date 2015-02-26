@@ -1,20 +1,20 @@
-maintainer       "Scott M. Likens"
+maintainer "Scott M. Likens"
 maintainer_email "scott@likens.us"
-license          "Apache 2.0"
+license "Apache 2.0"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          "4.0.01"
+version "4.0.01"
+name 'redis'
+description "Redis: a fast, flexible datastore offering an extremely useful set of data structure primitives"
 
-description      "Redis: a fast, flexible datastore offering an extremely useful set of data structure primitives"
+depends "runit"
+depends "sysctl"
+recipe "redis::default","Base configuration for redis"
+recipe "redis::install_from_package","Install From Ubuntu Package -- easy but lags in version"
+recipe "redis::install_from_release","Install From Release"
+recipe "redis::server","Redis server with runit service"
+recipe "redis::client","Client support for Redis database"
 
-depends          "runit"
-depends		       "sysctl"
-recipe           "redis::default",                     "Base configuration for redis"
-recipe           "redis::install_from_package",        "Install From Ubuntu Package -- easy but lags in version"
-recipe           "redis::install_from_release",        "Install From Release"
-recipe           "redis::server",                      "Redis server with runit service"
-recipe           "redis::client",                      "Client support for Redis database"
-
-%w[ debian ubuntu ].each do |os|
+%w[ debian ubuntu centos rhel fedora].each do |os|
   supports os
 end
 
